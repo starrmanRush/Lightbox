@@ -167,18 +167,17 @@ class PageView: UIScrollView {
         return
     }
 
-    let imageViewSize = imageView.frame.size
     let imageSize = image.size
     let realImageViewSize: CGSize
 
-    if imageSize.width / imageSize.height > imageViewSize.width / imageViewSize.height {
+    if imageSize.width / imageSize.height > imageView.frame.size.width / imageView.frame.size.height {
       realImageViewSize = CGSize(
-        width: imageViewSize.width,
-        height: imageViewSize.width / imageSize.width * imageSize.height)
+        width: imageView.frame.size.width,
+        height: imageView.frame.size.width / imageSize.width * imageSize.height)
     } else {
       realImageViewSize = CGSize(
-        width: imageViewSize.height / imageSize.height * imageSize.width,
-        height: imageViewSize.height)
+        width: imageView.frame.size.height / imageSize.height * imageSize.width,
+        height: imageView.frame.size.height)
     }
 
     imageView.frame = CGRect(origin: CGPoint.zero, size: realImageViewSize)
